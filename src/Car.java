@@ -1,70 +1,27 @@
 public class Car {
-public String brand;
-private String model;
-private double engineVolume;
-private String color;
-private int year;
-private String country;
+private final String brand;
+    private final String model;
+    private final double enginePower;
+    private final String color;
+    private final Integer year;
+    private final String country;
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country) {
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.color = color;
-        this.year = year;
-        this.country = country;
+        this.brand = validateCarParameters(brand);
+        this.model = validateCarParameters(model);
+        this.enginePower = validateEnginePower(enginePower);
+        this.color = validateCarParameters(color);
+        this.year = validateYear(year);
+        this.country = validateCarParameters(country);
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public double getEngineVolume() {
-        return engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setEngineVolume(double engineVolume) {
-        this.engineVolume = engineVolume;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     @Override
     public String toString() {
-        return " Марка автомобиля " + brand + " модель " + model + " объем двигателя " + engineVolume + " цвет " + color + " год выпуска " + year + " страна производитель " + country ;
+        return " Марка автомобиля " + brand + " модель " + model + " объем двигателя " + enginePower + " цвет " + color + " год выпуска " + year + " страна производитель " + country ;
     }
+    public static double validateEnginePower(double value) {return value<0 ? 1.5: value;}
+    public static Integer validateYear (Integer value) {return value==null ? 2000:value;}
+    public static String validateCarParameters(String value) {return validateString (value, "default");}
+    public static String validateCarColor (String value) {return value==null ? "белый":value;}
 }
