@@ -2,10 +2,19 @@ import static validateUtils.validateString;
 public class Car {
 private final String brand;
     private final String model;
-    private final double enginePower;
+    private double enginePower;
     private final String color;
     private final Integer year;
     private final String country;
+    private final String bodyType;
+    private boolean isSummerRubber;
+    private String transmission;
+    private String number;
+    private final int seatCount;
+    private Key key;
+    private Insuarance insuarance;
+
+
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country) {
         this.brand = validateCarParameters(brand);
